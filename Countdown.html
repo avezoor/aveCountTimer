@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>  
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+  background-image: url("img/1.png");
+  background-position: center;
+  background-size: cover;
+  color: #00b7ff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}s
+
+.timer-container {
+  text-align: center;
+}
+
+#timer {
+  font-size: 200px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1cm;
+}
+
+/* CSS */
+.button-56 {
+    font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #00D9FF;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  cursor: pointer;
+  background-color: #01A7C4;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="timer-container">
+  <div id="timer">00:00:00</div>
+  <div class="timer-controls">
+  <button button class="button-56" role="button" id="startBtn">Start</button>
+  <button button class="button-56" role="button" id="resetBtn">Reset</button>
+  </div>
+  <div class="timer-controls">
+    <button button class="button-56" role="button" id="addHourBtn">+</button>
+    <span id="hours">0</span>Jam
+    <button button class="button-56" role="button"  id="subtractHourBtn">-</button>
+    <button button class="button-56" role="button" id="addMinuteBtn">+</button>
+    <span id="minutes">0</span>Menit
+    <button button class="button-56" role="button" id="subtractMinuteBtn">-</button>
+    <button button class="button-56" role="button" id="addSecondBtn">+</button>
+    <span id="seconds">0</span>Detik
+    <button button class="button-56" role="button" id="subtractSecondBtn">-</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let timer;
+  let hours = 0;
+  let minutes = 0;
+  let seconds = 0;
+  let timerRunning = false;
+  
+  const timerDisplay = document.getElementById('timer');
+  const startBtn = document.getElementById('startBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const addHourBtn = document.getElementById('addHourBtn');
+  const subtractHourBtn = document.getElementById('subtractHourBtn');
+  const addMinuteBtn = document.getElementById('addMinuteBtn');
+  const subtractMinuteBtn = document.getElementById('subtractMinuteBtn');
+  const addSecondBtn = document.getElementById('addSecondBtn');
+  const subtractSecondBtn = document.getElementById('subtractSecondBtn');
+  const hoursDisplay = document.getElementById('hours');
+  const minutesDisplay = document.getElementById('minutes');
+  const secondsDisplay = document.getElementById('seconds');
+  
+  function startTimer() {
+    if (!timerRunning) {
+      timerRunning = true;
+      timer = setInterval(() => {
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+          clearInterval(timer);
+          timerRunning = false;
+          alert('Selesai');
+          return;
+        }
+        if (seconds === 0) {
+          if (minutes === 0) {
+            hours--;
+            minutes = 59;
+          } else {
+            minutes--;
+          }
+          seconds = 59;
+        } else {
+          seconds--;
+        }
+        updateDisplay();
+      }, 1000);
+      startBtn.textContent = 'Pause';
+    } else {
+      clearInterval(timer);
+      timerRunning = false;
+      startBtn.textContent = 'Resume';
+    }
+  }
+  
+  function resetTimer() {
+    clearInterval(timer);
+    timerRunning = false;
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
+    updateDisplay();
+    startBtn.textContent = 'Start';
+  }
+  
+  function updateDisplay() {
+    timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+  
+  addHourBtn.addEventListener('click', () => { hours++; updateDisplay(); hoursDisplay.textContent = hours; });
+  subtractHourBtn.addEventListener('click', () => { if (hours > 0) { hours--; updateDisplay(); hoursDisplay.textContent = hours; } });
+  addMinuteBtn.addEventListener('click', () => { if (minutes < 59) { minutes++; updateDisplay(); minutesDisplay.textContent = minutes; } });
+  subtractMinuteBtn.addEventListener('click', () => { if (minutes > 0) { minutes--; updateDisplay(); minutesDisplay.textContent = minutes; } });
+  addSecondBtn.addEventListener('click', () => { if (seconds < 59) { seconds++; updateDisplay(); secondsDisplay.textContent = seconds; } });
+  subtractSecondBtn.addEventListener('click', () => { if (seconds > 0) { seconds--; updateDisplay(); secondsDisplay.textContent = seconds; } });
+  startBtn.addEventListener('click', startTimer);
+  resetBtn.addEventListener('click', resetTimer);
+  
+  updateDisplay();
+  </script>
+
+</body>
+</html>
