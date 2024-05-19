@@ -4,116 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Countdown Timer</title>
-<style>  
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-body {
-  background-image: url("img/6.png");
+  body {
+  background-image: url("img/bg.png");
   background-position: center;
   background-size: cover;
-  color: #00b7ff;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Menengahkan secara horizontal */
+  align-items: center; /* Menengahkan secara vertikal */
   height: 100vh;
   margin: 0;
-}s
+}
+
 
 .timer-container {
   text-align: center;
+  margin-bottom: 20px; /* Tambahkan margin bawah untuk memberikan jarak */
 }
 
 #timer {
   font-size: 200px;
   margin-bottom: 10px;
-  align-items: center;
-}
-
-button {
-  font-size: 1em;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
+  background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  -webkit-background-clip: text; /* Properti untuk WebKit (Chrome, Safari, dll.) */
+  -webkit-text-fill-color: transparent; /* Menyembunyikan warna teks */
 }
 
 .timer-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1cm;
+  margin-bottom: 1cm; /* Tambahkan margin bawah yang lebih besar */
 }
 
-#fullscreen-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* CSS */
 .button-56 {
-    font-family: "Poppins", sans-serif;
+  position: relative;
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   align-items: center;
   background-color: #fee6e3;
-  border: 2px solid #00D9FF;
-  border-radius: 8px;
-  box-sizing: border-box;
+  border: none;
+  border-radius: 45px; /* Rounded corners */
   color: #111;
   cursor: pointer;
   height: 48px;
-  justify-content: center;
   line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
-  position: relative;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  box-shadow: 0 0 0 0 #5E315B; /* Shadow initial state */
+  animation: shadow-animation 5s infinite linear; /* Animation for shadow gradient */
 }
 
-.button-56:after {
-  cursor: pointer;
-  background-color: #01A7C4;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
+.button-56::before {
+  content: '';
   position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  top: -1px; /* Mengurangi ketebalan garis tepi */
+  left: -1px; /* Mengurangi ketebalan garis tepi */
+  right: -1px; /* Mengurangi ketebalan garis tepi */
+  bottom: -1px; /* Mengurangi ketebalan garis tepi */
+  border-radius: 45px;
+  background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   z-index: -1;
+  animation: border-animation 5s infinite linear;
 }
 
-.button-56:hover:after {
-  transform: translate(0, 0);
-}
 
-.button-56:active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
-.button-56:hover {
-  outline: 0;
-}
-
-@media (min-width: 768px) {
-  .button-56 {
-    padding: 0 40px;
+@keyframes border-animation {
+  0% {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px; /* Rounded corners */
+    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
-
+  25% {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px; /* Rounded corners */
+    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  }
+  50% {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px; /* Rounded corners */
+    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  }
+  75% {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px; /* Rounded corners */
+    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  }
+  100% {
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px; /* Rounded corners */
+    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  }
 }
+
+@keyframes shadow-animation {
+  0% {
+    box-shadow: 0 0 5px 5px #006769;
+  }
+  25% {
+    box-shadow: 0 0 5px 5px #40A578, 0 0 5px 5px #9DDE8B;
+  }
+  50% {
+    box-shadow: 0 0 5px 5px #9DDE8B, 0 0 5px 5px #E6FF94;
+  }
+  75% {
+    box-shadow: 0 0 5px 5px #40A578, 0 0 5px 5px #9DDE8B;
+  }
+  100% {
+    box-shadow: 0 0 5px 5px #006769;
+  }
+}
+
 
 .textchange2 {
-  color: #111;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px;
 }
+
 </style>
 </head>
 <body>
@@ -126,18 +168,21 @@ button {
   </div>
   <div class="timer-controls">
     <button button class="button-56" role="button" id="addHourBtn">+</button>
-    <span class="textchange2" id="hours">0</span><div class="textchange2" >Jam</div>
-    <button button class="button-56" role="button"  id="subtractHourBtn">-</button>
+    <span class="textchange2" id="hours">0</span><div class="textchange2" ><script>if(document.getElementById("hours").innerHTML === "0") { document.write("&nbsp;"); }</script>Jam</div>
+    <button button class="button-56" role="button" id="subtractHourBtn">-</button>
+    
     <button button class="button-56" role="button" id="addMinuteBtn">+</button>
-    <span class="textchange2" id="minutes">0</span><div class="textchange2" >Menit</div>
+    <span class="textchange2" id="minutes">0</span><div class="textchange2" ><script>if(document.getElementById("minutes").innerHTML === "0") { document.write("&nbsp;"); }</script>Menit</div>
     <button button class="button-56" role="button" id="subtractMinuteBtn">-</button>
+    
     <button button class="button-56" role="button" id="addSecondBtn">+</button>
-    <span class="textchange2" id="seconds">0</span><div class="textchange2" >Detik</div>
+    <span class="textchange2" id="seconds">0</span><div class="textchange2" ><script>if(document.getElementById("seconds").innerHTML === "0") { document.write("&nbsp;"); }</script>Detik</div>
     <button button class="button-56" role="button" id="subtractSecondBtn">-</button>
     </div>
   </div>
 </div>
 <script>
+
   let timer;
   let hours = 0;
   let minutes = 0;
@@ -196,6 +241,13 @@ button {
     seconds = 0;
     updateDisplay();
     startBtn.textContent = 'Start';
+    document.getElementById('resetBtn').addEventListener('click', function() {
+    document.querySelectorAll('.textchange2').forEach(element => {
+      if (!element.textContent.includes('Jam') && !element.textContent.includes('Menit') && !element.textContent.includes('Detik')) {
+        element.textContent = '0';
+      }
+    });
+  });
   }
   
   function updateDisplay() {
@@ -221,6 +273,7 @@ button {
           document.documentElement.requestFullscreen();
       }
   });
+
   </script>
 </body>
 </html>
