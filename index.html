@@ -8,15 +8,15 @@
   @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
   body {
-  background-image: url("img/bg.png");
+  background-image: url("bg.png");
   background-position: center;
   background-size: cover;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   display: flex;
-  justify-content: center; /* Menengahkan secara horizontal */
-  align-items: center; /* Menengahkan secara vertikal */
+  justify-content: center; 
+  align-items: center; 
   height: 100vh;
   margin: 0;
 }
@@ -24,22 +24,22 @@
 
 .timer-container {
   text-align: center;
-  margin-bottom: 20px; /* Tambahkan margin bawah untuk memberikan jarak */
+  margin-bottom: 20px; 
 }
 
 #timer {
   font-size: 200px;
   margin-bottom: 10px;
   background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
-  -webkit-background-clip: text; /* Properti untuk WebKit (Chrome, Safari, dll.) */
-  -webkit-text-fill-color: transparent; /* Menyembunyikan warna teks */
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
 }
 
 .timer-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1cm; /* Tambahkan margin bawah yang lebih besar */
+  margin-bottom: 1cm; 
 }
 
 .button-container {
@@ -59,7 +59,7 @@
   align-items: center;
   background-color: #fee6e3;
   border: none;
-  border-radius: 45px; /* Rounded corners */
+  border-radius: 45px; 
   color: #111;
   cursor: pointer;
   height: 48px;
@@ -69,17 +69,17 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  box-shadow: 0 0 0 0 #5E315B; /* Shadow initial state */
-  animation: shadow-animation 5s infinite linear; /* Animation for shadow gradient */
+  box-shadow: 0 0 0 0 #5E315B; 
+  animation: shadow-animation 5s infinite linear; 
 }
 
 .button-56::before {
   content: '';
   position: absolute;
-  top: -1px; /* Mengurangi ketebalan garis tepi */
-  left: -1px; /* Mengurangi ketebalan garis tepi */
-  right: -1px; /* Mengurangi ketebalan garis tepi */
-  bottom: -1px; /* Mengurangi ketebalan garis tepi */
+  top: -1px; 
+  left: -1px; 
+  right: -1px;
+  bottom: -1px; 
   border-radius: 45px;
   background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   z-index: -1;
@@ -93,7 +93,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    border-radius: 45px; /* Rounded corners */
+    border-radius: 45px;
     background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
   25% {
@@ -101,7 +101,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    border-radius: 45px; /* Rounded corners */
+    border-radius: 45px;
     background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
   50% {
@@ -109,7 +109,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    border-radius: 45px; /* Rounded corners */
+    border-radius: 45px; 
     background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
   75% {
@@ -117,7 +117,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    border-radius: 45px; /* Rounded corners */
+    border-radius: 45px;
     background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
   100% {
@@ -125,7 +125,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    border-radius: 45px; /* Rounded corners */
+    border-radius: 45px;
     background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
   }
 }
