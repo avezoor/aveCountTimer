@@ -5,157 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Countdown Timer</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-
-  body {
-  background-image: url("bg.png");
-  background-position: center;
-  background-size: cover;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh;
-  margin: 0;
-}
-
-
-.timer-container {
-  text-align: center;
-  margin-bottom: 20px; 
-}
-
-#timer {
-  font-size: 200px;
-  margin-bottom: 10px;
-  background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-}
-
-.timer-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1cm; 
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-56 {
-  position: relative;
-  font-size: 1em;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  align-items: center;
-  background-color: #fee6e3;
-  border: none;
-  border-radius: 45px; 
-  color: #111;
-  cursor: pointer;
-  height: 48px;
-  line-height: 24px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  box-shadow: 0 0 0 0 #5E315B; 
-  animation: shadow-animation 5s infinite linear; 
-}
-
-.button-56::before {
-  content: '';
-  position: absolute;
-  top: -1px; 
-  left: -1px; 
-  right: -1px;
-  bottom: -1px; 
-  border-radius: 45px;
-  background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
-  z-index: -1;
-  animation: border-animation 5s infinite linear;
-}
-
-
-@keyframes border-animation {
-  0% {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 45px;
-    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+body {
+    background-image: url("img/bg.png");
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    margin: 0;
   }
-  25% {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 45px;
-    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  
+  .timer-container {
+    text-align: center;
+    margin-bottom: 20px; 
   }
-  50% {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
+  
+  #timer {
+    font-size: 200px;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #343536, #66111d, #db9f62, #bd472d, #4f9596, #3a070f);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+  }
+  
+  .timer-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1cm; 
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-56 {
+    position: relative;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    align-items: center;
+    background-color: #fee6e3;
+    border: none;
     border-radius: 45px; 
-    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+    color: #111;
+    cursor: pointer;
+    height: 48px;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 0 0 0 #343536; 
+    animation: shadow-animation 5s infinite linear; 
   }
-  75% {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
+  
+  .button-56::before {
+    content: '';
+    position: absolute;
+    top: -1px; 
+    left: -1px; 
+    right: -1px;
+    bottom: -1px; 
     border-radius: 45px;
-    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+    background: linear-gradient(45deg, #343536, #66111d, #db9f62, #bd472d, #4f9596, #3a070f);
+    z-index: -1;
+    animation: border-animation 5s infinite linear;
   }
-  100% {
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 45px;
-    background: linear-gradient(45deg, #006769, #40A578, #9DDE8B, #E6FF94);
+  
+  @keyframes border-animation {
+    0% {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 45px;
+      background: linear-gradient(45deg, #343536, #66111d, #db9f62, #bd472d, #4f9596, #3a070f);
+    }
+    25% {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 45px;
+      background: linear-gradient(45deg, #66111d, #db9f62, #bd472d, #4f9596, #3a070f, #343536);
+    }
+    50% {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 45px; 
+      background: linear-gradient(45deg, #db9f62, #bd472d, #4f9596, #3a070f, #343536, #66111d);
+    }
+    75% {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 45px;
+      background: linear-gradient(45deg, #bd472d, #4f9596, #3a070f, #343536, #66111d, #db9f62);
+    }
+    100% {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 45px;
+      background: linear-gradient(45deg, #4f9596, #3a070f, #343536, #66111d, #db9f62, #bd472d);
+    }
   }
-}
-
-@keyframes shadow-animation {
-  0% {
-    box-shadow: 0 0 5px 5px #006769;
+  
+  @keyframes shadow-animation {
+    0% {
+      box-shadow: 0 0 5px 5px #343536;
+    }
+    25% {
+      box-shadow: 0 0 5px 5px #66111d, 0 0 5px 5px #db9f62;
+    }
+    50% {
+      box-shadow: 0 0 5px 5px #db9f62, 0 0 5px 5px #bd472d;
+    }
+    75% {
+      box-shadow: 0 0 5px 5px #66111d, 0 0 5px 5px #4f9596;
+    }
+    100% {
+      box-shadow: 0 0 5px 5px #343536;
+    }
   }
-  25% {
-    box-shadow: 0 0 5px 5px #40A578, 0 0 5px 5px #9DDE8B;
+  
+  .textchange2 {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px;
   }
-  50% {
-    box-shadow: 0 0 5px 5px #9DDE8B, 0 0 5px 5px #E6FF94;
-  }
-  75% {
-    box-shadow: 0 0 5px 5px #40A578, 0 0 5px 5px #9DDE8B;
-  }
-  100% {
-    box-shadow: 0 0 5px 5px #006769;
-  }
-}
-
-
-.textchange2 {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 10px;
-}
-
 </style>
 </head>
 <body>
