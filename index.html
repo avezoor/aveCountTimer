@@ -39,6 +39,10 @@ body {
     align-items: center;
     margin-bottom: 1cm; 
   }
+
+  .timer-controls.vertical {
+    flex-direction: column;
+  }
   
   .button-container {
     display: flex;
@@ -150,6 +154,7 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 10px;
+    margin: 10px;
   }
   
   @media (max-width: 768px) {
@@ -184,6 +189,10 @@ body {
     .textchange2 {
       font-size: 0.6em;
     }
+    
+    .timer-controls {
+      flex-direction: column;
+    }
   }
 </style>
 </head>
@@ -197,15 +206,18 @@ body {
   </div>
   <div class="timer-controls">
     <button class="button-56" role="button" id="addHourBtn">+</button>
-    <span class="textchange2" id="hours">0</span><div class="textchange2" ><script>if(document.getElementById("hours").innerHTML === "0") { document.write("&nbsp;"); }</script>Hours</div>
+    <span class="textchange2" id="hours">0</span>
+    <div class="textchange2">Hours</div>
     <button class="button-56" role="button" id="subtractHourBtn">-</button>
     
     <button class="button-56" role="button" id="addMinuteBtn">+</button>
-    <span class="textchange2" id="minutes">0</span><div class="textchange2" ><script>if(document.getElementById("minutes").innerHTML === "0") { document.write("&nbsp;"); }</script>Minute</div>
+    <span class="textchange2" id="minutes">0</span>
+    <div class="textchange2">Minutes</div>
     <button class="button-56" role="button" id="subtractMinuteBtn">-</button>
     
     <button class="button-56" role="button" id="addSecondBtn">+</button>
-    <span class="textchange2" id="seconds">0</span><div class="textchange2" ><script>if(document.getElementById("seconds").innerHTML === "0") { document.write("&nbsp;"); }</script>Second</div>
+    <span class="textchange2" id="seconds">0</span>
+    <div class="textchange2">Seconds</div>
     <button class="button-56" role="button" id="subtractSecondBtn">-</button>
   </div>
 </div>
@@ -270,7 +282,7 @@ body {
     startBtn.textContent = 'Start';
     document.getElementById('resetBtn').addEventListener('click', function() {
     document.querySelectorAll('.textchange2').forEach(element => {
-      if (!element.textContent.includes('Jam') && !element.textContent.includes('Menit') && !element.textContent.includes('Detik')) {
+      if (!element.textContent.includes('Hours') && !element.textContent.includes('Minutes') && !element.textContent.includes('Seconds')) {
         element.textContent = '0';
       }
     });
