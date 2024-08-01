@@ -25,7 +25,7 @@ body {
   }
   
   #timer {
-    font-size: 200px;
+    font-size: 10vw;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #343536, #66111d, #db9f62, #bd472d, #4f9596, #3a070f);
     -webkit-background-clip: text; 
@@ -34,6 +34,7 @@ body {
   
   .timer-controls {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-bottom: 1cm; 
@@ -49,7 +50,7 @@ body {
     position: relative;
     font-size: 1em;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
     font-family: "Poppins", sans-serif;
     font-weight: 800;
@@ -150,33 +151,65 @@ body {
     border-radius: 10px;
     padding: 10px;
   }
+  
+  @media (max-width: 768px) {
+    #timer {
+      font-size: 15vw;
+    }
+    
+    .button-56 {
+      font-size: 0.8em;
+      padding: 8px 16px;
+      height: 40px;
+      line-height: 20px;
+    }
+    
+    .textchange2 {
+      font-size: 0.8em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #timer {
+      font-size: 20vw;
+    }
+    
+    .button-56 {
+      font-size: 0.6em;
+      padding: 6px 12px;
+      height: 32px;
+      line-height: 16px;
+    }
+    
+    .textchange2 {
+      font-size: 0.6em;
+    }
+  }
 </style>
 </head>
 <body>
 <div class="timer-container">
   <div id="timer">00:00:00</div>
   <div class="timer-controls">
-  <button button class="button-56" role="button" id="startBtn">Start</button>
-  <button button class="button-56" role="button" id="resetBtn">Reset</button>
-  <button button class="button-56" role="button" id="fullscreen-button">Fullscreen</button>
+    <button class="button-56" role="button" id="startBtn">Start</button>
+    <button class="button-56" role="button" id="resetBtn">Reset</button>
+    <button class="button-56" role="button" id="fullscreen-button">Fullscreen</button>
   </div>
   <div class="timer-controls">
-    <button button class="button-56" role="button" id="addHourBtn">+</button>
+    <button class="button-56" role="button" id="addHourBtn">+</button>
     <span class="textchange2" id="hours">0</span><div class="textchange2" ><script>if(document.getElementById("hours").innerHTML === "0") { document.write("&nbsp;"); }</script>Hours</div>
-    <button button class="button-56" role="button" id="subtractHourBtn">-</button>
+    <button class="button-56" role="button" id="subtractHourBtn">-</button>
     
-    <button button class="button-56" role="button" id="addMinuteBtn">+</button>
+    <button class="button-56" role="button" id="addMinuteBtn">+</button>
     <span class="textchange2" id="minutes">0</span><div class="textchange2" ><script>if(document.getElementById("minutes").innerHTML === "0") { document.write("&nbsp;"); }</script>Minute</div>
-    <button button class="button-56" role="button" id="subtractMinuteBtn">-</button>
+    <button class="button-56" role="button" id="subtractMinuteBtn">-</button>
     
-    <button button class="button-56" role="button" id="addSecondBtn">+</button>
+    <button class="button-56" role="button" id="addSecondBtn">+</button>
     <span class="textchange2" id="seconds">0</span><div class="textchange2" ><script>if(document.getElementById("seconds").innerHTML === "0") { document.write("&nbsp;"); }</script>Second</div>
-    <button button class="button-56" role="button" id="subtractSecondBtn">-</button>
-    </div>
+    <button class="button-56" role="button" id="subtractSecondBtn">-</button>
   </div>
 </div>
 <script>
-
   let timer;
   let hours = 0;
   let minutes = 0;
@@ -267,7 +300,6 @@ body {
           document.documentElement.requestFullscreen();
       }
   });
-
-  </script>
+</script>
 </body>
 </html>
