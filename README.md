@@ -12,4 +12,4 @@ This repository contains the source code for a **Countdown Timer** project that 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/username/countdown-timer.git
+   git clone https://github.com/avezoor/aveCountTimer.git
